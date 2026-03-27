@@ -257,6 +257,12 @@
   background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0) 70%);
   border-radius: 50%;
   filter: blur(40px);
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.15); }
 }
 
 .grid-pattern-overlay {
@@ -369,9 +375,16 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 60px -10px rgba(139, 92, 246, 0.15);
   position: relative;
   overflow: hidden;
+  animation: heroDashboardFloat 8s ease-in-out infinite;
+}
+
+@keyframes heroDashboardFloat {
+  0% { transform: translateY(0px) rotate(0deg); box-shadow: 0 25px 60px -10px rgba(139, 92, 246, 0.15); }
+  50% { transform: translateY(-12px) rotate(0.5deg); box-shadow: 0 35px 70px -10px rgba(6, 182, 212, 0.2); }
+  100% { transform: translateY(0px) rotate(0deg); box-shadow: 0 25px 60px -10px rgba(139, 92, 246, 0.15); }
 }
 
 .dashboard-glass::before {
@@ -411,12 +424,20 @@
   background: linear-gradient(180deg, #60a5fa 0%, rgba(96, 165, 250, 0.2) 100%);
   border-radius: 4px 4px 0 0;
   opacity: 0.8;
+  transform-origin: bottom;
+  animation: barGrow 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
-.b1 { height: 40%; }
-.b2 { height: 60%; }
-.b3 { height: 30%; }
-.b4 { height: 80%; }
-.b5 { height: 100%; background: linear-gradient(180deg, #a78bfa 0%, rgba(167, 139, 250, 0.2) 100%); }
+
+@keyframes barGrow {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.b1 { height: 40%; animation-delay: 0.1s; }
+.b2 { height: 60%; animation-delay: 0.2s; }
+.b3 { height: 30%; animation-delay: 0.3s; }
+.b4 { height: 80%; animation-delay: 0.4s; }
+.b5 { height: 100%; background: linear-gradient(180deg, #a78bfa 0%, rgba(167, 139, 250, 0.2) 100%); animation-delay: 0.5s; }
 
 .dash-cards {
   display: flex;
